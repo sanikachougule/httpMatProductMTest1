@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <mat-card>
+            <h1>{{!isInEditMode ? 'Add Product Form': 'Updated Product Form'}}</h1>
+            <form [formGroup]="productForm" (ngSubmit)="onProductAdd()">
+            <mat-form-field  class="w-100">
+                <mat-label>Product Name</mat-label>
+                <input matInput  formControlName="name" name="name" id="name">
+              </mat-form-field>
+              <mat-form-field  class="w-100">
+                <mat-label>Product Url</mat-label>
+                <input matInput  formControlName="imgUrl" id="imgUrl" name="imgUrl">
+              </mat-form-field>
+              <mat-form-field  class="w-100 mt-3">
+                <mat-label>Product Status</mat-label>
+                <mat-select formControlName="status" id="status" name="status">
+                  <mat-option value="ordered">ordered</mat-option>
+                  <mat-option value="delivered">delivered</mat-option>
+                  <mat-option value="dispatched">dispatched></mat-option>
+
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="w-100 mt-3">
+                <mat-label>Textarea</mat-label>
+                <textarea  rows="4" matInput formControlName="description"></textarea>
+              </mat-form-field>
+              <mat-card-actions>
+                 <button 
+                 *ngIf="!isInEditMode"
+                 type="submit" mat-raised-button color="primary">Add Product</button>
+
+                 <button 
+                  (click)="onUpdatedproduct()"
+                 *ngIf="isInEditMode"
+                 type="button" mat-raised-button color="primary">Updated Product</button>
+              </mat-card-actions>
+        
+            </form>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="loader" *ngIf="isLoaderStatus">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
